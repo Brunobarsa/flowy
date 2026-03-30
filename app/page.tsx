@@ -103,14 +103,14 @@ function UseCaseIllustration({ type, isHovered, mode = 'corner' }: { type: strin
     if (mode === 'icon') return <Users className={`w-5 h-5 ${isHovered ? "text-blue-600" : "text-zinc-400"}`} />;
     return (
       <svg width={size} height={size} viewBox={viewbox} fill="none" className={className}>
-        <motion.circle cx="90" cy="40" r="8" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} animate={isHovered ? { scale: 1.2, fill: "#3b82f620" } : "initial"} />
-        <motion.circle cx="40" cy="120" r="6" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} animate={isHovered ? { scale: 1.3 } : "initial"} />
-        <motion.circle cx="140" cy="120" r="6" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} animate={isHovered ? { scale: 1.3 } : "initial"} />
-        <motion.circle cx="90" cy="140" r="12" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} animate={isHovered ? { scale: 1.1 } : "initial"} />
-        <motion.path d="M90 48L90 128M46 118L84 46M134 118L96 46M50 126L80 136M130 126L100 136" stroke={isHovered ? "#3b82f6" : "#f4f4f5"} strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+        <motion.circle cx="90" cy="40" r="8" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} initial="initial" animate={isHovered ? { scale: 1.2, fill: "#3b82f620", opacity: 1 } : "initial"} />
+        <motion.circle cx="40" cy="120" r="6" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} initial="initial" animate={isHovered ? { scale: 1.3, opacity: 1 } : "initial"} />
+        <motion.circle cx="140" cy="120" r="6" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} initial="initial" animate={isHovered ? { scale: 1.3, opacity: 1 } : "initial"} />
+        <motion.circle cx="90" cy="140" r="12" stroke={isHovered ? "#3b82f6" : "#e4e4e7"} strokeWidth="2" variants={variants} initial="initial" animate={isHovered ? { scale: 1.1, opacity: 1 } : "initial"} />
+        <motion.path d="M90 48L90 128M46 118L84 46M134 118L96 46M50 126L80 136M130 126L100 136" stroke={isHovered ? "#3b82f6" : "#f4f4f5"} strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
         <AnimatePresence>
           {isHovered && (
-            <motion.path d="M90 48V128 M46 118L84 46 M134 118L96 46" stroke="#3b82f6" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} />
+            <motion.path d="M90 48V128 M46 118L84 46 M134 118L96 46" stroke="#3b82f6" strokeWidth="2" initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} />
           )}
         </AnimatePresence>
       </svg>
